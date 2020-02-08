@@ -18,9 +18,9 @@ pipeline {
     stage('Running Tests') {
       steps {
         sh 'whoami'
-        sh 'bundle install'
         sh 'echo "Unit Tests"'
-        sh 'bundler exec fastlane test'
+        sh '/usr/local/bin/fastlane test'
+        //sh 'bundler exec fastlane test'
         
       }
     }
