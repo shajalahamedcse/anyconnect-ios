@@ -20,8 +20,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'whoami'
-        sh 'echo "Unit Tests"'
+        sh ''
         
       }
     }
