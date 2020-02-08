@@ -12,9 +12,6 @@ pipeline {
     stage('Running Tests') {
       steps {
         sh 'fastlane test'
-        //sh '/usr/local/bin/fastlane test'
-        //sh 'bundler exec fastlane test'
-        
       }
     }
 

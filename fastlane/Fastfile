@@ -23,10 +23,6 @@ platform :ios do
 
   desc "This lane build the app"
   lane :build do
-    get_certificates
-    get_provisioning_profile
-    build_app
+    build_app(export_xcargs: "-allowProvisioningUpdates")
   end
-
-
 end
