@@ -14,6 +14,7 @@ pipeline {
         sh 'whoami'
         sh 'echo "Unit Tests"'
         sh 'gem install xcpretty'
+        sh 'sudo -S <<< "sha01688" fastlane test'
         sh '/usr/local/bin/fastlane test'
         //sh 'bundler exec fastlane test'
         
