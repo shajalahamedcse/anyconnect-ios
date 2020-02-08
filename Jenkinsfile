@@ -17,15 +17,10 @@ pipeline {
 
     stage('Running Tests') {
       steps {
-        parallel (
-          "Unit Tests": {
-            sh 'echo "Unit Tests"'
-            sh 'fastlane test'
-          },
-          "UI Automation": {
-            sh 'echo "UI Automation"'
-          }
-        )
+        sh 'bundle install'
+        sh 'echo "Unit Tests"'
+        sh 'bundle exec fastlane test'
+        
       }
     }
 
@@ -53,12 +48,7 @@ pipeline {
       // Cleanup
       sh 'rm -rf build'
     }
-    success {
-      notifyBuild()
-    }
-    failure {
-      notifyBuild('ERROR')
-    }
+
   }
 }
 
