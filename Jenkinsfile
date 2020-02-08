@@ -19,7 +19,7 @@ pipeline {
       steps {
         sh 'bundle install'
         sh 'echo "Unit Tests"'
-        sh 'bundle exec fastlane test'
+        sh 'bundler exec fastlane test'
         
       }
     }
