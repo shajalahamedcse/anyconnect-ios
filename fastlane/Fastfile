@@ -23,6 +23,18 @@ platform :ios do
 
   desc "This lane build the app"
   lane :build do
-    build_app(export_xcargs: "-allowProvisioningUpdates")
+    gym
+    #build_app(export_xcargs: "-allowProvisioningUpdates")
+  end
+
+  lane :refreshJenkinsKeychain do
+    delete_keychain(name: "jenkins") if File.exists? File.expand_path("~/Library/Keychains/jenkins-db")
+    create_keychain(
+      name: "jenkins",
+      password: "jenkins",
+      timeout: false,
+      lock_when_sleeps: false,
+      unlock: true
+    )
   end
 end

@@ -26,6 +26,11 @@ This lane test the app
 fastlane ios build
 ```
 This lane build the app
+### ios refreshJenkinsKeychain
+```
+fastlane ios refreshJenkinsKeychain
+```
+
 
 ----
 

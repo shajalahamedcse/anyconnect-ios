@@ -11,14 +11,13 @@ pipeline {
 
     stage('Running Tests') {
       steps {
-        sh 'fastlane run setup_jenkins'
         sh 'fastlane test'
       }
     }
 
     stage('Build') {
       steps {
-        sh 'fastlane build'
+        sh 'fastlane gym'
         
       }
     }
