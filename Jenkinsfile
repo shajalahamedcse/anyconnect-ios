@@ -9,13 +9,18 @@ pipeline {
       }
     }
 
-    // stage('Dependecies') {
-    //   steps {
-    //     sh '/usr/local/bin/pod install'
-    //   }
-    // }
-
     stage('Running Tests') {
+      steps {
+        sh 'whoami'
+        sh 'export PATH="/usr/local/bin:$PATH"'
+        sh 'echo "Unit Tests"'
+        sh '/usr/local/bin/fastlane test'
+        //sh 'bundler exec fastlane test'
+        
+      }
+    }
+
+    stage('Build') {
       steps {
         sh 'whoami'
         sh 'echo "Unit Tests"'
@@ -24,32 +29,8 @@ pipeline {
         
       }
     }
-
-    stage('Documentation') {
-      when {
-        expression {
-          env.BRANCH_NAME == 'develop'
-        }
-      }
-      steps {
-        // Generating docs
-        sh 'jazzy'
-        // Removing current version from web server
-        sh 'rm -rf /path/to/doc/ios'
-        // Copy new docs to web server
-        sh 'cp -a docs/source/. /path/to/doc/ios'
-      }
-    }
   }
 
-  post {
-    always {
-      // Processing test results
-      junit 'fastlane/test_output/report.junit'
-      // Cleanup
-      sh 'rm -rf build'
-    }
 
-  }
 }
 
