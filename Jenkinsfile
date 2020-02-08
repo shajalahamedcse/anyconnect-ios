@@ -12,8 +12,8 @@ pipeline {
     stage('Running Tests') {
       steps {
         sh 'whoami'
-        sh 'export PATH="/usr/local/bin:$PATH"'
         sh 'echo "Unit Tests"'
+        sh 'gem install xcpretty'
         sh '/usr/local/bin/fastlane test'
         //sh 'bundler exec fastlane test'
         
