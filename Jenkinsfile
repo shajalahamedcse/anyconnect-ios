@@ -17,7 +17,7 @@ pipeline {
 
     stage('Running Tests') {
       steps {
-        sh 'whomai'
+        sh 'whoami'
         sh 'bundle install'
         sh 'echo "Unit Tests"'
         sh 'bundler exec fastlane test'
