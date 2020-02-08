@@ -26,11 +26,6 @@ This lane test the app
 fastlane ios build
 ```
 This lane build the app
-### ios jenkins
-```
-fastlane ios jenkins
-```
-
 
 ----
 
