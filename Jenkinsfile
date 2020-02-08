@@ -9,11 +9,11 @@ pipeline {
       }
     }
 
-    stage('Dependecies') {
+    // stage('Dependecies') {
     //   steps {
     //     sh '/usr/local/bin/pod install'
     //   }
-    }
+    // }
 
     stage('Running Tests') {
       steps {
