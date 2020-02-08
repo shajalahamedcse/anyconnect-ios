@@ -13,7 +13,7 @@ if(env.BRANCH_NAME == "master") {
 }
 
 pipeline {
-    agent macbuilder
+    agent any
 
     options {
         ansiColor("xterm")
