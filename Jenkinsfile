@@ -22,8 +22,6 @@ pipeline {
       steps {
         sh 'whoami'
         sh 'echo "Unit Tests"'
-        sh '/usr/local/bin/fastlane test'
-        //sh 'bundler exec fastlane test'
         
       }
     }
