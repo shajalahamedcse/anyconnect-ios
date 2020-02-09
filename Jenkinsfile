@@ -17,7 +17,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'fastlane gym'
+        sh 'fastlane build'
         
       }
     }
@@ -26,3 +26,4 @@ pipeline {
 
 }
 
+  
