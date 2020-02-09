@@ -62,3 +62,8 @@ From your docker container add mac machine as your host.
 Add Node from your Jenkins:
 
 ![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/slave_configure.png)
+
+Agent is Ready:
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/agent.png)
+
