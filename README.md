@@ -176,3 +176,67 @@ We will use multi-branch pipeline. Here is the configuration :
 ![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/jenkins2.png)
 
 ![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/jenkins3.png)
+
+
+Jenkinsfile:
+
+	  
+
+	pipeline {
+
+	agent any
+
+	stages {
+
+		stage('Checkout') {
+
+		steps {
+
+		checkout scm
+
+		}
+
+	}
+ 
+
+	stage('Running Tests') {
+
+		steps {
+
+		sh 'fastlane test'
+
+		}
+
+	}
+
+	  
+
+	stage('Build') {
+
+		steps {
+
+		sh 'fastlane build'
+
+		}
+
+		}
+
+	}
+
+	}
+
+
+
+Jenkins Console Output:
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/build1.png)
+
+  
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/build2.png)
+
+
+Everything is working.
+
+
+There is lots of room for improvement. This is a bare skeleton.
