@@ -1,6 +1,6 @@
 ## Problem Statement
 
-### Task 1 :
+### Task 1:
 
  Setup a standalone  master OR a slave build machine for Jenkins to build iOS project.  
   
@@ -19,3 +19,46 @@ Successful completion of the task should build the iOS project successfully on d
 * For Xcode code signing using a test Apple account.  
 * Have documentation as required to explain a particular task.  
 Task 1 and 2 should follow the continuous integration system process (excluding the part of source repo and triggering the build).
+
+## Solution : 
+
+I do not have any prior experience on ios apps development. So my machine was not ready for that. Most of the time I was busy to configure my machine. However , let's see what is in there.
+
+### Jenkins Using Docker :
+
+I have deployed a `Jenkins` server using `docker` in my mac. This container will work as `master` and my mac will work as builder . So it's a master slave architecture . Jenkins master will trigger the build  and slave will build , test the code.
+
+	$ docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins/jenkins:latest
+
+You have to `exec` into `docker` to get the `initial password`:
+
+	$ docker ps 
+	64684cc4a76e        jenkins/jenkins:latest   "/sbin/tini -- /usr/…"   24 hours ago        Up 24 hours         0.0.0.0:50000->50000/tcp, 0.0.0.0:8090->8080/tcp   gallant_golick
+	$ docker exec -it 646 bash
+	jenkins@64684cc4a76e:/$ cat /var/jenkins_home/secrets/initialAdminPassword
+
+Now use this `password` to do primary login:
+
+### Add Host Mac as Slave:
+
+Go to ` System Preference > Sharing > Remote Login`. You will get a remote login IP:
+
+	ssh shajalahamed@192.168.97.151
+	
+Now go to docker exec terminal and ssh into you mac host machine from docker .
+
+	$ ssh shajalahamed@192.168.97.151
+	Last login: Sat Feb  8 19:49:25 2020 from 192.168.0.103
+
+You are in your mac machine.
+
+	$ exit
+
+
+From your docker container add mac machine as your host.
+	
+	$ ssh-keyscan -H  192.168.97.151 >> ~/.ssh/known_hosts
+
+Add Node from your Jenkins:
+
+![Node Add][https://github.com/shajalahamedcse/anyconnect-ios/slave_configure.png]
