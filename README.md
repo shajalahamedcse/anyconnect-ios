@@ -166,4 +166,13 @@ It's Working.
 Now build the code :
 
 	$ fastlane build
-	
+
+## Jenkins and Fastline Integration:
+
+We will use multi-branch pipeline. Here is the configuration :
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/jenkins1.png)
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/jenkins2.png)
+
+![Node Add](https://github.com/shajalahamedcse/anyconnect-ios/blob/master/images/jenkins3.png)
